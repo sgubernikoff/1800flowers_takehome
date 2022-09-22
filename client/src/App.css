@@ -61,3 +61,46 @@ h4 {
   margin: auto;
   text-align: center;
 }
+
+.form_cont {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #9a7155;
+  border: 1.5px solid #426974;
+  width: 60%;
+  margin: auto;
+}
+
+input,
+textarea {
+  width: 75%;
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 0.8em;
+}
+
+label {
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #e4c7a7;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+.form_cont button {
+  width: 30%;
+  cursor: pointer;
+  color: #426974;
+  background-color: #e4c7a7;
+  margin-bottom: 2%;
+  margin-top: 2%;
+  border: 1px solid #426974;
+}
+
+.form_cont button:hover {
+  background-color: #426974;
+  color: #e4c7a7;
+}

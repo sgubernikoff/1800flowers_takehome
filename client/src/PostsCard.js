@@ -1,16 +1,23 @@
 import { React } from "react";
 import "./App.css";
+import { useDispatch } from "react-redux";
+import { postActions } from "./store/posts-slice";
 
-function PostsCard({ posts }) {
-  console.log(posts);
+function PostsCard({ post }) {
+  const dispatch = useDispatch();
+
+  function handleClick() {
+    dispatch(postActions.startEdit(post));
+  }
+
   return (
     <div className="post_card">
-      <h1>User ID: {posts.userId}</h1>
+      <h1>User ID: {post.userId}</h1>
       <div className="title_hold">
-        <h4>Title: {posts.title}</h4>
+        <h4>Title: {post.title}</h4>
       </div>
-      <p>{posts.body}</p>
-      <button>Edit</button>
+      <p>{post.body}</p>
+      <button onClick={handleClick}>Edit</button>
     </div>
   );
 }
