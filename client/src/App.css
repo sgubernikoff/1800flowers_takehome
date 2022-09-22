@@ -104,3 +104,26 @@ h3 {
   background-color: #426974;
   color: #e4c7a7;
 }
+
+.dropdown {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  width: 40.5%;
+  margin: auto;
+}
+
+.dropdown:empty {
+  border: none;
+}
+
+.dropdown-row {
+  cursor: pointer;
+  text-align: start;
+  margin: 2px 0;
+}
+
+.search-bar {
+  width: 40%;
+}

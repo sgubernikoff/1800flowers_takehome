@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from "react";
 import Posts from "./Posts.js";
 import "./App.css";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { postActions } from "./store/posts-slice";
 
 function App() {

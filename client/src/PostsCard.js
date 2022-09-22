@@ -3,11 +3,12 @@ import "./App.css";
 import { useDispatch } from "react-redux";
 import { postActions } from "./store/posts-slice";
 
-function PostsCard({ post }) {
+function PostsCard({ post, setSearchText }) {
   const dispatch = useDispatch();
 
   function handleClick() {
     dispatch(postActions.startEdit(post));
+    setSearchText("");
   }
 
   return (
