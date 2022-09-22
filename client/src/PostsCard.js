@@ -4,10 +4,13 @@ import "./App.css";
 function PostsCard({ posts }) {
   console.log(posts);
   return (
-    <div>
-      <h1>{posts.userId}</h1>
-      <h4>{posts.title}</h4>
+    <div className="post_card">
+      <h1>User ID: {posts.userId}</h1>
+      <div className="title_hold">
+        <h4>Title: {posts.title}</h4>
+      </div>
       <p>{posts.body}</p>
+      <button>Edit</button>
     </div>
   );
 }

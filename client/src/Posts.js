@@ -1,8 +1,11 @@
 import { React, useState } from "react";
 import "./App.css";
 import PostsCard from "./PostsCard";
+import { useSelector } from "react-redux";
 
-function Posts({ posts }) {
+function Posts() {
+  const posts = useSelector((state) => state.posts.postList);
+
   const [searchText, setSearchText] = useState("");
 
   const searchResults = posts.filter((posts) => {
@@ -16,14 +19,14 @@ function Posts({ posts }) {
     <div>
       <h1 className="inv-header">POSTS</h1>
       <section>
-        <h3 className="searcher">Search for Your Title</h3>
+        <h3 className="searcher">Search For Your Title</h3>
         <input
           className="search-bar"
           type="text"
           placeholder="Search..."
           onChange={(e) => setSearchText(e.target.value)}
         />
-        <div className="inventory">{display}</div>
+        <div className="post_holder">{display}</div>
       </section>
     </div>
   );

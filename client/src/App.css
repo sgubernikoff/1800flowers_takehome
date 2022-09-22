@@ -1,38 +1,63 @@
 .App {
+  font-family: "Times New Roman", Times, serif;
   text-align: center;
+
+  color: #426974;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.post_holder {
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  width: 90%;
+  margin: auto;
+}
+
+.post_card {
+  width: 30%;
+  border: 0.1vw solid #000;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0.15vw 0.15vw #6e6e6e;
+  margin: 1.5%;
+  display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.post_card h4 {
+  margin-bottom: 2.5%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.post_card button {
+  width: 30%;
+  cursor: pointer;
+  color: #426974;
+  background-color: #e4c7a7;
+  margin-bottom: 2%;
+  margin-top: 2%;
+  border: 1px solid #426974;
+}
+
+.post_card button:hover {
+  background-color: #426974;
+  color: #e4c7a7;
+}
+
+.post_card p,
+h4 {
+  width: 85%;
+  margin: auto;
+}
+
+.inv-header {
+  margin-top: 2%;
+}
+
+.search-bar {
+  width: 30%;
+  margin: auto;
+  text-align: center;
 }

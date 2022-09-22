@@ -1,14 +1,16 @@
 import { React, useState, useEffect } from "react";
 import Posts from "./Posts.js";
 import "./App.css";
+import { useSelector, useDispatch } from "react-redux";
+import { postActions } from "./store/posts-slice";
 
 function App() {
-  const [posts, setPosts] = useState([]);
+  const dispatch = useDispatch();
 
   function getPosts() {
     fetch("/posts")
       .then((res) => res.json())
-      .then((posts) => setPosts(posts));
+      .then((posts) => dispatch(postActions.getPosts(posts)));
   }
 
   useEffect(() => {
@@ -17,7 +19,7 @@ function App() {
 
   return (
     <div className="App">
-      <Posts posts={posts} />
+      <Posts />
     </div>
   );
 }
