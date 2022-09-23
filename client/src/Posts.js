@@ -18,8 +18,6 @@ function Posts() {
     <PostsCard key={post.id} post={post} setSearchText={setSearchText} />
   ));
 
-  console.log(searchText);
-
   return (
     <div>
       <h1 className="inv-header">POSTS</h1>
