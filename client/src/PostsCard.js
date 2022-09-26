@@ -18,7 +18,9 @@ function PostsCard({ post, setSearchText }) {
         <h4>Title: {post.title}</h4>
       </div>
       <p>{post.body}</p>
-      <button onClick={handleClick}>Edit</button>
+      <button className="edit_button" onClick={handleClick}>
+        Edit
+      </button>
     </div>
   );
 }

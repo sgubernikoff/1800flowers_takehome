@@ -10,7 +10,7 @@ function Posts() {
 
   const [searchText, setSearchText] = useState("");
 
-  const searchResults = posts.filter((posts) => {
+  const searchResults = [...posts].filter((posts) => {
     return posts.title.toLowerCase().includes(searchText.toLowerCase());
   });
 
@@ -19,7 +19,7 @@ function Posts() {
   ));
 
   return (
-    <div>
+    <div className="posts_container">
       <h1 className="inv-header">POSTS</h1>
       {!clickedPost ? (
         <section>
