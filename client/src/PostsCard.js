@@ -6,6 +6,8 @@ import { postActions } from "./store/posts-slice";
 function PostsCard({ post, setSearchText }) {
   const dispatch = useDispatch();
 
+  //Adds selected post card to clicked post array
+
   function handleClick() {
     dispatch(postActions.startEdit(post));
     setSearchText("");

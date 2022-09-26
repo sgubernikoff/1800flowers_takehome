@@ -10,6 +10,8 @@ function EditForm() {
   const [title, setTitle] = useState(clickedPost.title);
   const [body, setBody] = useState(clickedPost.body);
 
+  // takes edited post data and adds to posts array replacing its old ID. Sorts post by original structure (user ID)
+
   function handleSubmit() {
     const updatedData = { ...clickedPost, title: title, body: body };
     dispatch(postActions.endEdit(updatedData));
