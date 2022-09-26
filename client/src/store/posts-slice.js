@@ -2,10 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const postsSlice = createSlice({
   name: "posts",
-  initialState: { postList: [], clickedPost: null },
+  initialState: { postList: [], clickedPost: null, matchingPost: [] },
   reducers: {
     getPosts(state, action) {
       state.postList = action.payload;
+    },
+    getSearch(state, action) {
+      state.matchingPost = action.payload;
     },
     startEdit(state, action) {
       state.clickedPost = action.payload;

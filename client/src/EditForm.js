@@ -12,7 +12,6 @@ function EditForm() {
 
   function handleSubmit() {
     const updatedData = { ...clickedPost, title: title, body: body };
-    console.log(updatedData);
     dispatch(postActions.endEdit(updatedData));
   }
 

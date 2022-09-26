@@ -3,6 +3,7 @@ import "./App.css";
 import PostsCard from "./PostsCard";
 import { useSelector } from "react-redux";
 import EditForm from "./EditForm";
+import ConventionalSearch from "./ConventionalSearch";
 
 function Posts() {
   const posts = useSelector((state) => state.posts.postList);
@@ -31,6 +32,10 @@ function Posts() {
             onChange={(e) => setSearchText(e.target.value)}
             value={searchText}
           />
+          {/* <ConventionalSearch
+            searchText={searchText}
+            setSearchText={setSearchText}
+          /> */}
           <div className="dropdown">
             {posts
               .filter((item) => {
