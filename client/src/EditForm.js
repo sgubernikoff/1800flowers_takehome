@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { postActions } from "./store/posts-slice";
+import { useNavigate } from "react-router";
 
 function EditForm() {
   const clickedPost = useSelector((state) => state.posts.clickedPost);
@@ -10,11 +11,14 @@ function EditForm() {
   const [title, setTitle] = useState(clickedPost.title);
   const [body, setBody] = useState(clickedPost.body);
 
+  const nav = useNavigate();
+
   // takes edited post data and adds to posts array replacing its old ID. Sorts post by original structure (user ID)
 
   function handleSubmit() {
     const updatedData = { ...clickedPost, title: title, body: body };
     dispatch(postActions.endEdit(updatedData));
+    nav("/");
   }
 
   return (

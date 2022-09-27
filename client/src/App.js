@@ -1,8 +1,10 @@
 import { React, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
 import Posts from "./Posts.js";
 import "./App.css";
 import { useDispatch } from "react-redux";
 import { postActions } from "./store/posts-slice";
+import EditForm from "./EditForm.js";
 
 function App() {
   const dispatch = useDispatch();
@@ -21,7 +23,10 @@ function App() {
 
   return (
     <div className="App">
-      <Posts />
+      <Routes>
+        <Route exact path="/" element={<Posts />} />
+        <Route exact path="/editpost" element={<EditForm />} />
+      </Routes>
     </div>
   );
 }

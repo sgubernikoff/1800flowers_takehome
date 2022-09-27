@@ -1,16 +1,20 @@
 import { React } from "react";
 import "./App.css";
+import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import { postActions } from "./store/posts-slice";
 
 function PostsCard({ post, setSearchText }) {
   const dispatch = useDispatch();
 
+  const nav = useNavigate();
+
   //Adds selected post card to clicked post array
 
   function handleClick() {
     dispatch(postActions.startEdit(post));
     setSearchText("");
+    nav("/editpost");
   }
 
   return (
