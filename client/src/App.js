@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import { React, useEffect } from "react";
 import Posts from "./Posts.js";
 import "./App.css";
 import { useDispatch } from "react-redux";
@@ -12,6 +12,8 @@ function App() {
       .then((res) => res.json())
       .then((posts) => dispatch(postActions.getPosts(posts)));
   }
+
+  // Only calls fetch once with dependency array []
 
   useEffect(() => {
     getPosts();

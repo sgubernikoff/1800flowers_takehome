@@ -18,7 +18,7 @@ function PrimarySearch() {
 
   // Displays search results
 
-  const display = searchResults.map((post) => (
+  const displayPosts = searchResults.map((post) => (
     <PostsCard key={post.id} post={post} setSearchText={setSearchText} />
   ));
 
@@ -57,7 +57,7 @@ function PrimarySearch() {
                 </div>
               ))}
           </div>
-          <div className="post_holder">{display}</div>
+          <div className="post_holder">{displayPosts}</div>
         </section>
       ) : (
         <EditForm />

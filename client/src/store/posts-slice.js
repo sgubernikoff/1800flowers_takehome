@@ -12,7 +12,7 @@ const postsSlice = createSlice({
     getSearch(state, action) {
       state.matchingPost = action.payload;
     },
-    // framework to add selected post to clickedPost array
+    // framework to add selected post as clickedPost object
     startEdit(state, action) {
       state.clickedPost = action.payload;
     },

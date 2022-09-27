@@ -8,7 +8,7 @@ import { act } from "react-dom/test-utils";
 const render = (component) =>
   rtlRender(<Provider store={store}>{component}</Provider>);
 
-test("renders App component without crashing", () => {
+test("renders App component", () => {
   render(<App />);
 });
 
