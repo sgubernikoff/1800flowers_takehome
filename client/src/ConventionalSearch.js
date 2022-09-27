@@ -9,7 +9,6 @@ import DropdownOptions from "./DropdownOptions";
 function ConventionalSearch() {
   const matchingPost = useSelector((state) => state.posts.matchingPost);
   const posts = useSelector((state) => state.posts.postList);
-  const clickedPost = useSelector((state) => state.posts.clickedPost);
   const dispatch = useDispatch();
 
   const [searchText, setSearchText] = useState("");
@@ -39,30 +38,26 @@ function ConventionalSearch() {
 
   return (
     <div>
-      {!clickedPost ? (
-        <div>
-          <h3 className="searcher">Search For Your Title</h3>
-          <form onSubmit={onSubmit}>
-            <input
-              className="search-bar"
-              type="text"
-              placeholder="Search"
-              value={searchText}
-              onChange={(e) => setSearchText(e.target.value)}
-            />
-            <input className="search_submit" type="submit" value="Submit" />
-          </form>
-          <DropdownOptions
-            setSearchText={setSearchText}
-            searchText={searchText}
+      <div>
+        <h3 className="searcher">Search For Your Title</h3>
+        <form onSubmit={onSubmit}>
+          <input
+            className="search-bar"
+            type="text"
+            placeholder="Search"
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
           />
-          {matchingPost.length > 0 ? (
-            <div className="post_holder">{displayPosts}</div>
-          ) : null}
-        </div>
-      ) : (
-        <EditForm />
-      )}
+          <input className="search_submit" type="submit" value="Submit" />
+        </form>
+        <DropdownOptions
+          setSearchText={setSearchText}
+          searchText={searchText}
+        />
+        {matchingPost.length > 0 ? (
+          <div className="post_holder">{displayPosts}</div>
+        ) : null}
+      </div>
     </div>
   );
 }

@@ -7,7 +7,6 @@ import DropdownOptions from "./DropdownOptions";
 
 function PrimarySearch() {
   const posts = useSelector((state) => state.posts.postList);
-  const clickedPost = useSelector((state) => state.posts.clickedPost);
 
   const [searchText, setSearchText] = useState("");
 
@@ -25,25 +24,21 @@ function PrimarySearch() {
 
   return (
     <div className="posts_container">
-      {!clickedPost ? (
-        <section>
-          <h3 className="searcher">Search For Your Title</h3>
-          <input
-            className="search-bar"
-            type="text"
-            placeholder="Search..."
-            onChange={(e) => setSearchText(e.target.value)}
-            value={searchText}
-          />
-          <DropdownOptions
-            setSearchText={setSearchText}
-            searchText={searchText}
-          />
-          <div className="post_holder">{displayPosts}</div>
-        </section>
-      ) : (
-        <EditForm />
-      )}
+      <section>
+        <h3 className="searcher">Search For Your Title</h3>
+        <input
+          className="search-bar"
+          type="text"
+          placeholder="Search..."
+          onChange={(e) => setSearchText(e.target.value)}
+          value={searchText}
+        />
+        <DropdownOptions
+          setSearchText={setSearchText}
+          searchText={searchText}
+        />
+        <div className="post_holder">{displayPosts}</div>
+      </section>
     </div>
   );
 }
