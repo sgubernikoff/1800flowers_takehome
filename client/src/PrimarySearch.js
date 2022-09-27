@@ -4,11 +4,14 @@ import PostsCard from "./PostsCard";
 import { useSelector } from "react-redux";
 import EditForm from "./EditForm";
 import DropdownOptions from "./DropdownOptions";
+import { useNavigate } from "react-router";
 
 function PrimarySearch() {
   const posts = useSelector((state) => state.posts.postList);
 
   const [searchText, setSearchText] = useState("");
+
+  const nav = useNavigate();
 
   // Filters searches if matching post = searched content
 
@@ -22,10 +25,17 @@ function PrimarySearch() {
     <PostsCard key={post.id} post={post} setSearchText={setSearchText} />
   ));
 
+  function navToEdit() {
+    nav("/editpost");
+  }
+
   return (
     <div className="posts_container">
+      <h3 className="searcher">Search For Your Title</h3>
+      <button className="edit_nav_button" onClick={navToEdit}>
+        Edit a Post
+      </button>
       <section>
-        <h3 className="searcher">Search For Your Title</h3>
         <input
           className="search-bar"
           type="text"

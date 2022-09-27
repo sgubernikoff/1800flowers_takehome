@@ -12,6 +12,10 @@ const postsSlice = createSlice({
     getSearch(state, action) {
       state.matchingPost = action.payload;
     },
+    setMatchingPost(state, action) {
+      const post = state.postList.find((p) => p.title === action.payload);
+      state.matchingPost = post;
+    },
     // framework to add selected post as clickedPost object
     startEdit(state, action) {
       state.clickedPost = action.payload;
@@ -19,12 +23,13 @@ const postsSlice = createSlice({
     // framework to add edited data to postList array, filter the old id out and sort the new array
     endEdit(state, action) {
       const filteredPost = state.postList.filter(
-        (a) => a.id !== state.clickedPost.id
+        (post) => post.id !== action.payload.id
       );
       const updatedPosts = [...filteredPost, action.payload];
       const sortedPosts = updatedPosts.sort((a, b) => a.id - b.id);
       state.postList = sortedPosts;
       state.clickedPost = null;
+      state.matchingPost = [];
     },
   },
 });

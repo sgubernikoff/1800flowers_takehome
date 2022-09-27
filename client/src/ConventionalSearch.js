@@ -3,14 +3,14 @@ import "./App.css";
 import { useSelector, useDispatch } from "react-redux";
 import { postActions } from "./store/posts-slice";
 import PostsCard from "./PostsCard";
-import EditForm from "./EditForm";
 import DropdownOptions from "./DropdownOptions";
+import { useNavigate } from "react-router";
 
 function ConventionalSearch() {
   const matchingPost = useSelector((state) => state.posts.matchingPost);
   const posts = useSelector((state) => state.posts.postList);
   const dispatch = useDispatch();
-
+  const nav = useNavigate();
   const [searchText, setSearchText] = useState("");
 
   // Only use this component when disabling Primary Search search functionality
@@ -36,10 +36,17 @@ function ConventionalSearch() {
     <PostsCard key={post.id} post={post} setSearchText={setSearchText} />
   ));
 
+  function navToEdit() {
+    nav("/editpost");
+  }
+
   return (
     <div>
       <div>
         <h3 className="searcher">Search For Your Title</h3>
+        <button className="edit_nav_button" onClick={navToEdit}>
+          Edit a Post
+        </button>
         <form onSubmit={onSubmit}>
           <input
             className="search-bar"
