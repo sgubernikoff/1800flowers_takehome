@@ -3,6 +3,7 @@ import "./App.css";
 import PostsCard from "./PostsCard";
 import { useSelector } from "react-redux";
 import EditForm from "./EditForm";
+import DropdownOptions from "./DropdownOptions";
 
 function PrimarySearch() {
   const posts = useSelector((state) => state.posts.postList);
@@ -34,29 +35,10 @@ function PrimarySearch() {
             onChange={(e) => setSearchText(e.target.value)}
             value={searchText}
           />
-          <div className="dropdown">
-            {posts
-              .filter((item) => {
-                const searchTerm = searchText.toLowerCase();
-                const titleName = item.title.toLowerCase();
-
-                return (
-                  searchTerm &&
-                  titleName.startsWith(searchTerm) &&
-                  titleName !== searchTerm
-                );
-              })
-              .slice(0, 10)
-              .map((item) => (
-                <div
-                  onClick={() => setSearchText(item.title)}
-                  className="dropdown-row"
-                  key={item.title}
-                >
-                  {item.title}
-                </div>
-              ))}
-          </div>
+          <DropdownOptions
+            setSearchText={setSearchText}
+            searchText={searchText}
+          />
           <div className="post_holder">{displayPosts}</div>
         </section>
       ) : (
