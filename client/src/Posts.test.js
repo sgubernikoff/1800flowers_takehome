@@ -6,9 +6,14 @@ import App from "./App";
 import { unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
 import PostsCard from "./PostsCard";
+import { BrowserRouter } from "react-router-dom";
 
 const render = (component) =>
-  rtlRender(<Provider store={store}>{component}</Provider>);
+  rtlRender(
+    <Provider store={store}>
+      <BrowserRouter>{component}</BrowserRouter>
+    </Provider>
+  );
 
 describe(Posts, () => {
   it("search bar populates form", () => {

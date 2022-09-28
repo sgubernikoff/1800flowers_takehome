@@ -22,7 +22,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="App" data-testid="App">
       <Routes>
         <Route exact path="/" element={<Posts />} />
         <Route exact path="/editpost" element={<EditForm />} />
