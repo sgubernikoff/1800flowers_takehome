@@ -14,7 +14,7 @@ function EditForm() {
   const userId = useRef();
   const nav = useNavigate();
 
-  // takes edited post data and adds to posts array replacing its old ID. Sorts post by original structure (user ID). only lets you edit existing post & wont let you add new post
+  // takes edited post data and adds to posts array replacing its old ID. Sorts post by original structure (user ID). only lets you edit existing post & wont let you add new post or enter blank form
 
   function handleSubmit() {
     const updatedData = {
@@ -23,11 +23,14 @@ function EditForm() {
       id: id.current,
       userId: userId.current,
     };
-    if (body !== "" && title !== "") {
-      dispatch(postActions.endEdit(updatedData));
-      nav("/");
+
+    if (!clickedPost && !matchingPost && !updatedData.id) {
+      alert("Can't create new post");
     } else if (body === "" || title === "") {
       alert("Can't enter empty form");
+    } else if (body !== "" && title !== "") {
+      dispatch(postActions.endEdit(updatedData));
+      nav("/");
     }
   }
 
