@@ -9,8 +9,8 @@ function Posts() {
   return (
     <div className="posts_container">
       <h1 className="inv-header">POSTS</h1>
-      {/* <PrimarySearch /> */}
-      <ConventionalSearch />
+      <PrimarySearch />
+      {/* <ConventionalSearch /> */}
     </div>
   );
 }
