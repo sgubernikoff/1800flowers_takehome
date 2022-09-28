@@ -14,7 +14,7 @@ function EditForm() {
   const userId = useRef();
   const nav = useNavigate();
 
-  // takes edited post data and adds to posts array replacing its old ID. Sorts post by original structure (user ID)
+  // takes edited post data and adds to posts array replacing its old ID. Sorts post by original structure (user ID). only lets you edit existing post, wont let you add new post, cant enter empty post
 
   function handleSubmit() {
     const updatedData = {
@@ -23,8 +23,14 @@ function EditForm() {
       id: id.current,
       userId: userId.current,
     };
-    dispatch(postActions.endEdit(updatedData));
-    nav("/");
+    if (body !== "" && title !== "" && matchingPost) {
+      dispatch(postActions.endEdit(updatedData));
+      nav("/");
+    } else if (body === "" || title === "") {
+      alert("Can't enter empty form");
+    } else if (!matchingPost) {
+      alert("Can't edit non exisiting post");
+    }
   }
 
   // when title changes, redux checks if matchedPost = existing title. if it matches, sets body to corresponding post. title/matching post dependency array to prevent infinite loop/fire at right time
