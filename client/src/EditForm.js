@@ -38,6 +38,10 @@ function EditForm() {
     }
   }, [title, matchingPost]);
 
+  function home() {
+    nav("/");
+  }
+
   return (
     <div data-testid="edit">
       <h3>Edit Form</h3>
@@ -60,6 +64,10 @@ function EditForm() {
         <br></br>
         <button onClick={handleSubmit}>Submit</button>
       </div>
+      <br></br>
+      <button className="edit_nav_button" onClick={home}>
+        Back to Home
+      </button>
     </div>
   );
 }
