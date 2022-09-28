@@ -25,7 +25,7 @@ function ConventionalSearch() {
   // Filters searches if matching post = searched content
 
   const searchResults = [...posts].filter((posts) => {
-    if (matchingPost.length > 0) {
+    if (matchingPost && matchingPost.length > 0) {
       return posts.title.toLowerCase().includes(matchingPost.toLowerCase());
     } else;
   });
@@ -36,8 +36,11 @@ function ConventionalSearch() {
     <PostsCard key={post.id} post={post} setSearchText={setSearchText} />
   ));
 
+  // Clears form if you go from a selected post to general edit form
+
   function navToEdit() {
     nav("/editpost");
+    dispatch(postActions.startEdit(""));
   }
 
   return (
@@ -61,7 +64,7 @@ function ConventionalSearch() {
           setSearchText={setSearchText}
           searchText={searchText}
         />
-        {matchingPost.length > 0 ? (
+        {matchingPost && matchingPost.length > 0 ? (
           <div className="post_holder">{displayPosts}</div>
         ) : null}
       </div>

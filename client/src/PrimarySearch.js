@@ -1,10 +1,10 @@
 import { React, useState } from "react";
 import "./App.css";
 import PostsCard from "./PostsCard";
-import { useSelector } from "react-redux";
-import EditForm from "./EditForm";
+import { useSelector, useDispatch } from "react-redux";
 import DropdownOptions from "./DropdownOptions";
 import { useNavigate } from "react-router";
+import { postActions } from "./store/posts-slice";
 
 function PrimarySearch() {
   const posts = useSelector((state) => state.posts.postList);
@@ -12,6 +12,7 @@ function PrimarySearch() {
   const [searchText, setSearchText] = useState("");
 
   const nav = useNavigate();
+  const dispatch = useDispatch();
 
   // Filters searches if matching post = searched content
 
@@ -25,8 +26,11 @@ function PrimarySearch() {
     <PostsCard key={post.id} post={post} setSearchText={setSearchText} />
   ));
 
+  // Clears form if you go from a selected post to general edit form
+
   function navToEdit() {
     nav("/editpost");
+    dispatch(postActions.startEdit(""));
   }
 
   return (
