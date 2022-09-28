@@ -41,7 +41,7 @@ function ConventionalSearch() {
   }
 
   return (
-    <div>
+    <div data-testid="edit">
       <div>
         <h3 className="searcher">Search For Your Title</h3>
         <button className="edit_nav_button" onClick={navToEdit}>

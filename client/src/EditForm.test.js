@@ -1,5 +1,5 @@
-import { render as rtlRender, screen } from "@testing-library/react";
-import App from "./App";
+import { render as rtlRender, screen, fireEvent } from "@testing-library/react";
+import EditForm from "./EditForm";
 import { Provider } from "react-redux";
 import store from "./store/store";
 import { BrowserRouter } from "react-router-dom";
@@ -11,8 +11,8 @@ const render = (component) =>
     </Provider>
   );
 
-test("renders App component", () => {
-  render(<App />);
-  const app = screen.getByTestId("App");
-  expect(app).toBeTruthy();
+test("renders EditForm component", () => {
+  render(<EditForm />);
+  const edit = screen.getByTestId("edit");
+  expect(edit).toBeTruthy();
 });

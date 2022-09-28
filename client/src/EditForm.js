@@ -39,7 +39,7 @@ function EditForm() {
   }, [title, matchingPost]);
 
   return (
-    <div>
+    <div data-testid="edit">
       <h3>Edit Form</h3>
       <div className="form_cont">
         <label>Title</label>

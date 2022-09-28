@@ -30,7 +30,7 @@ function PrimarySearch() {
   }
 
   return (
-    <div className="posts_container">
+    <div className="posts_container" data-testid="edit">
       <h3 className="searcher">Search For Your Title</h3>
       <button className="edit_nav_button" onClick={navToEdit}>
         Edit a Post
